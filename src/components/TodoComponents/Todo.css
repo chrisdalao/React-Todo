@@ -28,6 +28,7 @@ input{
       padding: 10px;
       border-bottom: 1px solid #757575;
       margin: 10px;
+      cursor: pointer;
   }
 
   .add-btn{
