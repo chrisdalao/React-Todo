@@ -3,6 +3,9 @@ import React from 'react';
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
 
+import './App.css';
+import './components/TodoComponents/Todo.css';
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -63,14 +66,15 @@ class App extends React.Component {
 
   clearCompletedTodo = e => {
     e.preventDefault();
-    let toDoTask = this.state.toDoTask.filter(toDo => !toDo.completed);
+    const toDoTask = this.state.toDoTask.filter(toDo => toDo.completed === false);
     this.setState({ toDoTask });
   }
 
 
   render() {
     return (
-      <div>
+      <div className="App">
+        <div className="todo-wrapper">
         <TodoList
           toDoTask={this.state.toDoTask}
           toggleTodo={this.toggleTodo}
@@ -81,6 +85,7 @@ class App extends React.Component {
           handleAddTodo={this.addTodo}
           handleClearTodo={this.clearCompletedTodo}
         />
+        </div>
       </div>
     );
   }
